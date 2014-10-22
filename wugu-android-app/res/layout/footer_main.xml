@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:background="@drawable/widget_bar_bg_n"
+    android:orientation="horizontal" >
+    <RadioGroup 
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="horizontal"
+	    >
+		    <!-- 第一个按钮 news  -->
+		    <RadioButton 
+		        android:id="@+id/main_bar_news_id"
+		        style="@style/main_footbar_radio"
+		        android:drawableTop="@drawable/main_bar_news"
+		        />
+		    <ImageView 
+		        style="@style/main_footbar_cutline"
+		        android:src="@drawable/widget_bar_cut_off"
+		        />
+		    
+		    <!-- 第二个按钮 问答  -->
+			<RadioButton 
+			    android:id="@+id/main_bar_question_id"
+		        style="@style/main_footbar_radio"
+		        android:drawableTop="@drawable/main_bar_question"
+		        />
+		    <ImageView 
+		        style="@style/main_footbar_cutline"
+		        android:src="@drawable/widget_bar_cut_off"
+		        />
+		    
+		    <!-- 第三个按钮 动弹  -->
+		    <RadioButton 
+		        android:id="@+id/main_bar_tweet_id"
+		        style="@style/main_footbar_radio"
+		        android:drawableTop="@drawable/main_bar_tweet"
+		        />
+		    <ImageView 
+		        style="@style/main_footbar_cutline"
+		        android:src="@drawable/widget_bar_cut_off"
+		        />
+		    
+		    <!-- 第四个按钮 我的空间  -->
+		    <RadioButton 
+		        android:id="@+id/main_bar_active_id"
+		        style="@style/main_footbar_radio"
+		        android:drawableTop="@drawable/main_bar_active"
+		        />
+		    <ImageView 
+		        style="@style/main_footbar_cutline"
+		        android:src="@drawable/widget_bar_cut_off"
+		        />
+		    
+		    <!-- 第五个按钮 菜单  -->
+		    <RadioButton 
+		        android:id="@+id/main_bar_more_id"
+		        style="@style/main_footbar_radio"
+		        android:drawableTop="@drawable/main_bar_more"
+		        />
+		    <ImageView 
+		        style="@style/main_footbar_cutline"
+		        android:src="@drawable/widget_bar_cut_off"
+		        />
+    </RadioGroup>
+</LinearLayout>

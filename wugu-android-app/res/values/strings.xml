@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">吾谷网</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+	<string name="header_zixun">资讯</string>
+	<string name="frame_title_news_lastest">最新资讯</string>
+	<string name="frame_title_news_lastest_blog">最新博客</string>
+	<string name="frame_title_news_recommend">推荐阅读</string>
+</resources>
