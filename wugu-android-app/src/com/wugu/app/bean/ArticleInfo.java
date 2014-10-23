@@ -2,6 +2,8 @@ package com.wugu.app.bean;
 
 import java.io.Serializable;
 
+import android.graphics.Bitmap;
+
 public class ArticleInfo implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -9,7 +11,7 @@ public class ArticleInfo implements Serializable{
 	private int id;//id
 	private String title;//标题
 	private String detail;//内容
-	private int avatar;//图片id
+	private String imgUrl;//图片url
 	public int getId() {
 		return id;
 	}
@@ -28,10 +30,10 @@ public class ArticleInfo implements Serializable{
 	public void setDetail(String detail) {
 		this.detail = detail;
 	}
-	public int getAvatar() {
-		return avatar;
+	public String getImgUrl() {
+		return imgUrl;
 	}
-	public void setAvatar(int avatar) {
-		this.avatar = avatar;
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
 	}
 }

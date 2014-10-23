@@ -3,10 +3,8 @@ package com.wugu.app.adapter;
 import java.io.Serializable;
 import java.util.List;
 
-import com.wugu.app.R;
-import com.wugu.app.bean.ArticleInfo;
-
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +12,14 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class newsAdapter extends BaseAdapter implements Serializable{
+import com.wugu.app.R;
+import com.wugu.app.api.ApiClient;
+import com.wugu.app.bean.ArticleInfo;
+import com.wugu.app.utils.StringUtils;
+
+public class NewsAdapter extends BaseAdapter implements Serializable{
 	
+	private static final long serialVersionUID = -625565531539707986L;
 	//资源链接器(读取xml文件返回视图)
 	private LayoutInflater inflater ;
 	//需要显示的新闻列表
@@ -23,7 +27,7 @@ public class newsAdapter extends BaseAdapter implements Serializable{
 	//视图列表文件layout/xx
 	private int resource;
 	
-	public newsAdapter(Context context, List<ArticleInfo> list, int resource) {
+	public NewsAdapter(Context context, List<ArticleInfo> list, int resource) {
 		this.inflater = LayoutInflater.from(context);
 		this.newsList = list;
 		this.resource = resource;
@@ -64,12 +68,14 @@ public class newsAdapter extends BaseAdapter implements Serializable{
 		}else{
 			listItemView = (ListItemView) convertView.getTag();
 		}
-		
 		ArticleInfo article = newsList.get(position);
+		//判断是否有图片，如果有图片则获取到图片并显示
+		if(!StringUtils.isEmpty(article.getImgUrl())){
+			Bitmap bitmap = ApiClient.getBitMapFromUri(article.getImgUrl());
+			listItemView.image.setImageBitmap(bitmap);
+		}
 		listItemView.title.setText(article.getTitle());
 		listItemView.detail.setText(article.getDetail());
-		listItemView.image.setImageResource(article.getAvatar());
-		
 		return convertView;
 	}
 

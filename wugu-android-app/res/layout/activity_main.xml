@@ -19,7 +19,7 @@
     	android:focusable="true"
         ></ListView>
 
-    <include
-        layout="@layout/footer_main" />
+    <!-- <include
+        layout="@layout/footer_main" /> -->
 
 </LinearLayout>
