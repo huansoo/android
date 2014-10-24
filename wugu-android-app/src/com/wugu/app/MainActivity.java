@@ -12,11 +12,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.wugu.app.adapter.NewsAdapter;
 import com.wugu.app.api.ApiClient;
 import com.wugu.app.bean.ArticleInfo;
+import com.wugu.app.common.UIHelper;
 
 public class MainActivity extends Activity {
 	private List<ArticleInfo> articleList = new ArrayList<ArticleInfo>();
@@ -37,7 +37,12 @@ public class MainActivity extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
 				ArticleInfo article = articleList.get(position);
-				Toast.makeText(MainActivity.this, "title: "+article.getTitle()+", detail: "+ article.getDetail(), Toast.LENGTH_SHORT).show();
+//				Toast.makeText(MainActivity.this, "title: "+article.getTitle()+", detail: "+ article.getDetail(), Toast.LENGTH_SHORT).show();
+//				ArticleInfo article = null;
+//				if(view instanceof TextView){
+//					article = (ArticleInfo) view.getTag();
+//				}
+				UIHelper.showUrlRedirect(MainActivity.this, article.getUrl());
 			}
 		});
 	}
@@ -57,6 +62,7 @@ public class MainActivity extends Activity {
 					article.setTitle(news.getString("title"));
 					article.setDetail(news.getString("detail"));
 					article.setImgUrl(String.valueOf(news.get("img")));
+					article.setUrl(news.getString("url"));
 					articleList.add(article);
 				}
 			}

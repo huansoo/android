@@ -1,6 +1,7 @@
 package com.wugu.app.api;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -30,6 +31,7 @@ public class ApiClient {
 	public static final String UTF_8 = "UTF-8";
 	private static final String RETURN_STRING = "string"; 
 	private static final String RETURN_STREAM = "stream"; 
+	private static final int RETRY_TIME = 3;//重试链接的次数
 	
 	/**
 	 * get请求返回string
@@ -104,7 +106,7 @@ public class ApiClient {
 	 * @param url
 	 * @return
 	 */
-	public static Bitmap getBitMapFromUri(String url){
+	public static Bitmap getBitmapFromUri(String url){
 		Bitmap bitmap = null;
 		try {
 			HttpURLConnection con = (HttpURLConnection) new URL(url).openConnection();
@@ -120,5 +122,62 @@ public class ApiClient {
 			e.printStackTrace();
 		}
 		return bitmap;
+	}
+	/**
+	 * 将url网址中包含的图片转化为bitmap
+	 * @param url
+	 * @return
+	 */
+	public static Bitmap getNetBitMap(String url){
+		Bitmap bitmap = null;
+		HttpClient client = null;
+		GetMethod getMethod = null;
+		int time = 0;
+		while(time < RETRY_TIME){
+			InputStream is = null;
+			try {
+				client = getHttpClient();
+				getMethod = new GetMethod(url);
+				int status = client.executeMethod(getMethod);
+				if(200 == status){
+					is = getMethod.getResponseBodyAsStream();
+				}
+				byte[] by = getBytes(is);
+				bitmap = BitmapFactory.decodeByteArray(by, 0, by.length);
+				is.close();
+				break;
+			} catch (HttpException e) {
+				e.printStackTrace();
+				time++;
+				continue;
+			} catch (IOException e) {
+				time++;
+				e.printStackTrace();
+				continue;
+			} finally{
+				getMethod.releaseConnection();
+				client = null;
+			}
+		}
+		return bitmap;
+	}
+	/**
+	 * 将流转化为字节数组
+	 * @param is
+	 * @return
+	 */
+	public static byte[] getBytes(InputStream is){
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		byte[] by = new byte[1024];
+		int len = -1;
+		try {
+			while((len=(is.read(by)))!= -1){
+				bos.write(by, 0, len);
+			}
+			bos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return bos.toByteArray();
 	}
 }

@@ -12,6 +12,7 @@ public class ArticleInfo implements Serializable{
 	private String title;//标题
 	private String detail;//内容
 	private String imgUrl;//图片url
+	private String url;//详情url
 	public int getId() {
 		return id;
 	}
@@ -35,5 +36,11 @@ public class ArticleInfo implements Serializable{
 	}
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
+	}
+	public String getUrl() {
+		return url;
+	}
+	public void setUrl(String url) {
+		this.url = url;
 	}
 }
