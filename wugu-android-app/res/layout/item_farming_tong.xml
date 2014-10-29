@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+     <!-- ?android:attr/textAppearanceLargeInverse
+        	这里引用的是系统自带的一个外观，？表示系统是否有这种外观，否则使用默认的外观。 -->
+     <TextView 
+         android:id="@+id/item_farming_tong_title_id"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textAppearance="?android:attr/textAppearanceLargeInverse"
+         />
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <ImageView 
+        android:id="@+id/item_farming_tong_img_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+        <TextView 
+            android:id="@+id/item_farming_tong_detail_id"
+            android:layout_height="47dp"
+            android:layout_width="wrap_content"
+            />
+    </LinearLayout>
+
+</LinearLayout>

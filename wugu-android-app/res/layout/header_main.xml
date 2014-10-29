@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="60dip"
+    android:orientation="vertical"
+    android:layout_gravity="center_horizontal"
+    >
+    <RelativeLayout 
     android:layout_width="match_parent"
-    android:layout_height="40dip"
+    android:layout_height="30dip"
     android:background="@drawable/widget_head_bg"
     android:orientation="horizontal" >
     <ImageView 
@@ -32,5 +38,61 @@
     	android:layout_marginRight="2.0dip"
     	android:background="@drawable/frame_icon_search"
 	    />
-	
-</RelativeLayout>
+    </RelativeLayout>
+    
+    <LinearLayout 
+        android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:orientation="horizontal"
+    	android:layout_weight="1"
+    	android:gravity="top"
+    	android:layout_marginTop="1dip"
+        >
+        <!-- 新闻 -->
+       <Button 
+           android:id="@+id/frame_news_button_id"
+           style="@style/frame_button"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/frame_title_news"
+           /> 
+       
+        <!-- 原创 -->
+       <Button 
+           android:id="@+id/frame_original_button_id"
+           style="@style/frame_button"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/frame_title_original"
+           /> 
+           
+        <!--农事通 -->
+
+       <Button
+           android:id="@+id/frame_farming_tong_button_id"
+           style="@style/frame_button"
+           android:layout_width="86dp"
+           android:layout_height="wrap_content"
+           android:text="@string/frame_title_farming_tong" />
+           
+        <!--专栏 -->
+       <Button 
+           android:id="@+id/frame_columnist_button_id"
+           style="@style/frame_button"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/frame_title_columnist"
+           /> 
+           
+        <!--专题 -->
+       <Button 
+           android:id="@+id/frame_subject_button_id"
+           style="@style/frame_button"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="@string/frame_title_subject"
+           /> 
+    </LinearLayout>
+</LinearLayout>
+
+

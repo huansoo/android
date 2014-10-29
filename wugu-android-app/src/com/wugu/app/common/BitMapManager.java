@@ -125,7 +125,7 @@ public class BitMapManager implements Serializable{
 		pool.execute(new Runnable() {
 			@Override
 			public void run() {
-				Message msg = Message.obtain();
+				Message msg = handler.obtainMessage();
 				Bitmap bitmap = downloadBitmap(url, width, height);
 				msg.obj = bitmap;
 				System.out.println(url);
